@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Event | Event Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="marquee">
+        <h1>COEP Technological University</h1>
+    </div>
+
+    <div class="event-container">
+        <h2>Create New Event</h2>
+        <form id="eventForm">
+            <label for="eventName">Event Name:</label>
+            <input type="text" id="eventName" placeholder="Enter event name" required>
+
+            <label for="eventDate">Date:</label>
+            <input type="date" id="eventDate" required>
+
+            <label for="eventTime">Time:</label>
+            <input type="time" id="eventTime" required>
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" placeholder="Enter event location" required>
+
+            <label for="category">Category:</label>
+            <select id="category">
+                <option value="Seminar">Seminar</option>
+                <option value="Workshop">Workshop</option>
+                <option value="Hackathon">Hackathon</option>
+                <option value="Cultural Fest">Cultural Fest</option>
+            </select>
+
+            <label for="description">Description:</label>
+            <textarea id="description" placeholder="Enter event description" required></textarea>
+
+            <label for="eventBanner">Upload Event Banner:</label>
+            <input type="file" id="eventBanner" accept="image/*">
+
+            <label for="brochure">Upload Brochure:</label>
+            <input type="file" id="brochure" accept=".pdf,.doc,.docx">
+
+            <button type="submit">Create Event</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

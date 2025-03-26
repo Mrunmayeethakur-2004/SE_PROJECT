@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venue & Resource Management | Event Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="marquee">
+        <h1>COEP Technological University</h1>
+    </div>
+
+    <div class="venue-container">
+        <h2>Venue & Resource Booking</h2>
+        <form id="venueForm">
+            <label for="eventName">Event Name:</label>
+            <input type="text" id="eventName" placeholder="Enter event name" required>
+
+            <label for="venue">Select Venue:</label>
+            <select id="venue">
+                <option value="Auditorium">Auditorium</option>
+                <option value="Conference Hall">Conference Hall</option>
+                <option value="Open Ground">Open Ground</option>
+                <option value="Lab">Lab</option>
+            </select>
+
+            <label for="date">Event Date:</label>
+            <input type="date" id="date" required>
+
+            <label for="time">Event Time:</label>
+            <input type="time" id="time" required>
+
+            <label for="resources">Required Resources:</label>
+            <select id="resources" multiple>
+                <option value="Projector">Projector</option>
+                <option value="Speakers">Speakers</option>
+                <option value="Microphone">Microphone</option>
+                <option value="Laptop">Laptop</option>
+            </select>
+
+            <button type="submit">Book Venue</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
