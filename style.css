@@ -1,447 +1,114 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    text-align: center;
+/* style.css */
+
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-.login-container {
-    background: white;
-    width: 350px;
-    padding: 20px;
-    margin: 50px auto;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-    color: #333;
-}
-
-label {
-    display: block;
-    text-align: left;
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-input, select {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    background: #007bff;
-    color: black;
-    border: none;
-    cursor: pointer;
-    margin-top: 15px;
-}
-
-button:hover {
-    background: #0056b3;
-}
-/* Background Image */
 body {
-    background: url('background.jpg') no-repeat center center/cover;
+    background: url('Register bg.png') no-repeat center center/cover;
     height: 100vh;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    font-family: Arial, sans-serif;
-    margin: 0;
+    align-items: center;
+    color: white;
+}
+
+.login-container {
+    width: 400px;
+    background: white; /* Solid white background */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    color: black; /* Change text color for better visibility */
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+}
+
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    width: 80px; /* Adjust size as needed */
+    height: auto;
+}
+
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
     color: black;
 }
 
-/* Marquee Scrolling Effect */
-.marquee {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 10px 0;
+pre {
+    color: white;
+    font-family: "Bodoni MT Condensed", serif;
+    font-size: 500%;
     position: absolute;
-    top: 0;
-    left: 0;
-    text-align: center;
+    top: 20%;
+    left: 5%;
+    text-align: left;
+}
+h5{
+    color: white;
+    font-family: "Bodoni MT Condensed", serif;
+    font-size: 100%;
+    position: absolute;
+    top: 45%;
+    left: 5%;
+    text-align: left;
 }
 
-.marquee h1 {
-    display: inline-block;
-    font-size: 24px;
-    font-weight: bold;
-    color: #ffcc00;
-    animation: scrollText 10s linear infinite;
-}
-
-/* Scrolling Animation */
-@keyframes scrollText {
-    from { transform: translateX(100%); }
-    to { transform: translateX(-100%); }
-}
-
-/* Login Container */
-.login-container {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
-    width: 300px;
-    text-align: center;
-}
-
-.login-container h2 {
-    margin-bottom: 15px;
-    font-size: 22px;
-    color: #ffcc00;
-}
 
 label {
     display: block;
     margin-top: 10px;
     font-size: 14px;
+    text-align: left;
+    color: white;
 }
 
 input, select {
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
+    padding: 10px;
+    margin: 5px 0;
     border: none;
     border-radius: 5px;
-    font-size: 14px;
+    outline: none;
+    background: #f0f0f0; /* Light gray background */
 }
 
 button {
-    width: 100%;
-    background: #ffcc00;
+    background: #ff5733;
+    color: white;
     padding: 10px;
-    margin-top: 15px;
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
+    width: 80%;
+    border-radius: 25px; /* Makes the button more rounded */
     cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px; /* Optional: Make text larger */
 }
 
 button:hover {
-    background: #ff9900;
+    background: #c4421e;
 }
 
 p {
-    margin-top: 15px;
+    margin-top: 10px;
     font-size: 14px;
 }
 
 a {
-    color: #ffcc00;
-    font-weight: bold;
+    color: rgb(14, 14, 13);
     text-decoration: none;
 }
-p {
-    margin-top: 15px;
-}
-/* Background Image */
-body {
-    background: url('images/coep.png') no-repeat center center/cover;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    color: white;
-}
 
-/* Marquee Header */
-.marquee {
-    width: 100%;
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 10px;
-}
-
-/* Event Container */
-.event-container {
-    background: rgba(0, 0, 0, 0.7);
-    padding: 20px;
-    width: 50%;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
-    text-align: center;
-}
-
-/* Form Fields */
-input, select, textarea {
-    width: 100%;
-    padding: 8px;
-    margin: 5px 0;
-    border: none;
-    border-radius: 5px;
-}
-
-textarea {
-    height: 80px;
-}
-
-button {
-    background-color: #ff6600;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 10px;
-}
-
-button:hover {
-    background-color: #cc5500;
-}
-/* Background Image */
-body {
-    background: url('images/coep.png') no-repeat center center/cover;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    color: white;
-}
-
-/* Marquee Header */
-.marquee {
-    width: 100%;
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 10px;
-}
-
-/* Registration Container */
-.registration-container {
-    background: rgba(0, 0, 0, 0.7);
-    padding: 20px;
-    width: 50%;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
-    text-align: center;
-}
-
-/* Form Fields */
-input, select {
-    width: 100%;
-    padding: 8px;
-    margin: 5px 0;
-    border: none;
-    border-radius: 5px;
-}
-
-button {
-    background-color: #ff6600;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 10px;
-}
-
-button:hover {
-    background-color: #cc5500;
-}
-
-/* Hide Payment Section Initially */
-#paymentSection {
-    display: none;
-    margin-top: 10px;
-}
-/* Background Image */
-body {
-    background: url('images/coep.png') no-repeat center center/cover;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    color: white;
-}
-
-/* Marquee Header */
-.marquee {
-    width: 100%;
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 10px;
-}
-
-/* Notification Container */
-.notification-container {
-    background: rgba(0, 0, 0, 0.7);
-    padding: 20px;
-    width: 50%;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
-    text-align: center;
-}
-
-/* Form Fields */
-input, select {
-    width: 100%;
-    padding: 8px;
-    margin: 5px 0;
-    border: none;
-    border-radius: 5px;
-}
-
-button {
-    background-color: #ff6600;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 10px;
-}
-
-button:hover {
-    background-color: #cc5500;
-}
-/* Venue Container */
-.venue-container {
-    background: rgba(0, 0, 0, 0.7);
-    padding: 20px;
-    width: 50%;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
-    text-align: center;
-}
-
-/* Multi-select Dropdown */
-select[multiple] {
-    height: 100px;
-}
-/* Schedule Container */
-.schedule-container, .feedback-container, .reports-container {
-    background: rgba(0, 0, 0, 0.7);
-    padding: 20px;
-    width: 50%;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3);
-    text-align: center;
-    margin: auto;
-    color: white;
-}
-
-/* Feedback Form */
-textarea {
-    width: 100%;
-    height: 80px;
-}
-
-/* Report Button */
-button {
-    background-color: #ff5733;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-}
-
-
-
-
-
-/* Remove background color, border, and box-shadow */
-.login-container, .event-container, .registration-container, .notification-container, 
-.venue-container, .schedule-container, .feedback-container, .reports-container {
-    background: none; /* Remove background color */
-    border: none; /* Remove border */
-    box-shadow: none; /* Remove shadow */
-    padding: 20px; /* Keep spacing */
-    text-align: center; /* Center content */
-}
-input, select, textarea {
-    background: transparent; /* Make input fields transparent */
-    border: 1px solid black; /* Add a subtle balck border */
-    color: black; /* Ensure text remains visible */
-}
-/* Background Image */
-body {
-    background: url('images/coep.png') no-repeat center center fixed;
-    background-size: cover;
-    font-family: Arial, sans-serif;
-    color: white;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
-
-/* Marquee Header */
-.marquee h1 {
-    font-size: 30px;
-    font-weight: bold;
-    color: yellow;
-    text-align: center;
-    animation: marquee 10s linear infinite;
-}
-
-/* Marquee Animation */
-@keyframes marquee {
-    from { transform: translateX(-100%); }
-    to { transform: translateX(100%); }
-}
-
-/* Navigation Bar */
-nav {
-    background: rgba(0, 0, 0, 0.7);
-    padding: 10px;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    padding: 8px 12px;
-    border-radius: 5px;
-    transition: 0.3s;
-}
-
-nav ul li a:hover {
-    background: yellow;
-    color: black;
-}
-
-/* Home Container */
-.home-container {
-    margin-top: 50px;
-    padding: 20px;
-    background: none;
+a:hover {
+    text-decoration: underline;
 }

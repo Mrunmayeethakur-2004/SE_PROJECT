@@ -3,51 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Event | Event Management System</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Create Event</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
 </head>
 <body>
-
-    <div class="marquee">
-        <h1>COEP Technological University</h1>
-    </div>
-
-    <div class="event-container">
+    <div class="container mt-5">
         <h2>Create New Event</h2>
-        <form id="eventForm">
-            <label for="eventName">Event Name:</label>
-            <input type="text" id="eventName" placeholder="Enter event name" required>
-
-            <label for="eventDate">Date:</label>
-            <input type="date" id="eventDate" required>
-
-            <label for="eventTime">Time:</label>
-            <input type="time" id="eventTime" required>
-
-            <label for="location">Location:</label>
-            <input type="text" id="location" placeholder="Enter event location" required>
-
-            <label for="category">Category:</label>
-            <select id="category">
-                <option value="Seminar">Seminar</option>
-                <option value="Workshop">Workshop</option>
-                <option value="Hackathon">Hackathon</option>
-                <option value="Cultural Fest">Cultural Fest</option>
-            </select>
-
-            <label for="description">Description:</label>
-            <textarea id="description" placeholder="Enter event description" required></textarea>
-
-            <label for="eventBanner">Upload Event Banner:</label>
-            <input type="file" id="eventBanner" accept="image/*">
-
-            <label for="brochure">Upload Brochure:</label>
-            <input type="file" id="brochure" accept=".pdf,.doc,.docx">
-
-            <button type="submit">Create Event</button>
+        <form action="save_event.php" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label>Event Name:</label>
+                <input type="text" name="event_name" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label>Date:</label>
+                <input type="date" name="event_date" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label>Time:</label>
+                <input type="time" name="event_time" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label>Location:</label>
+                <input type="text" name="location" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label>Category:</label>
+                <select name="category" class="form-control">
+                    <option value="Seminar">Seminar</option>
+                    <option value="Workshop">Workshop</option>
+                    <option value="Concert">Concert</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label>Description:</label>
+                <textarea name="description" class="form-control" required></textarea>
+            </div>
+            <div class="mb-3">
+                <label>Upload Event Banner:</label>
+                <input type="file" name="event_banner" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label>Upload Brochure:</label>
+                <input type="file" name="event_brochure" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Create Event</button>
         </form>
     </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
