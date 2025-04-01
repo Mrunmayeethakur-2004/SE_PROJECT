@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sss", $role, $email, $password);
 
     if ($stmt->execute()) {
-        // Redirect to success page instead of echoing text
+        // Redirect to success page
         header("Location: registration_success.html");
         exit();
     } else {

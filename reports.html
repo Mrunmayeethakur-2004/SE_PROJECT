@@ -8,89 +8,78 @@
 </head>
 <style>
     * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
 
-body {
-    background: url('https://source.unsplash.com/1600x900/?event,conference') no-repeat center center/cover;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-}
+    body {
+        background: url('https://source.unsplash.com/1600x900/?event,conference') no-repeat center center/cover;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        flex-direction: column;
+    }
 
-.login-container {
-    width: 400px;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    border-radius: 10px;
-    backdrop-filter: blur(10px);
-    text-align: center;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-}
+    .reports-container {
+        width: 80%;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+        backdrop-filter: blur(10px);
+        text-align: center;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    }
 
-h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #ffd700;
-}
+    h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        color: #ffd700;
+    }
 
-label {
-    display: block;
-    margin-top: 10px;
-    font-size: 14px;
-    text-align: left;
-    color: white;
-}
+    button {
+        background: #ff5733;
+        color: white;
+        padding: 10px;
+        border: none;
+        width: 200px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
 
-input, select {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    border: none;
-    border-radius: 5px;
-    outline: none;
-}
+    button:hover {
+        background: #c4421e;
+    }
 
-button {
-    background: #ff5733;
-    color: white;
-    padding: 10px;
-    border: none;
-    width: 100%;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
+    #reportData {
+        margin-top: 20px;
+        color: white;
+        text-align: left;
+    }
 
-button:hover {
-    background: #c4421e;
-}
+    table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+    }
 
-p {
-    margin-top: 10px;
-    font-size: 14px;
-}
+    th, td {
+        padding: 10px;
+        border: 1px solid white;
+        text-align: left;
+    }
 
-a {
-    color: yellow;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
+    th {
+        background: rgba(255, 255, 255, 0.3);
+    }
 </style>
 <body>
-
-    <div class="marquee">
-        <h1>COEP Technological University</h1>
-    </div>
 
     <div class="reports-container">
         <h2>Event Reports & Analytics</h2>
@@ -100,6 +89,16 @@ a:hover {
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function generateReport() {
+            fetch('generate_report.php')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("reportData").innerHTML = data;
+            })
+            .catch(error => console.error("Error fetching report:", error));
+        }
+    </script>
+
 </body>
 </html>

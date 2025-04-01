@@ -40,6 +40,8 @@ $result = $conn->query($sql);
     </style>
 </head>
 <body>
+ADMINISTRATOR DASHBOARD....!!
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
@@ -51,9 +53,9 @@ $result = $conn->query($sql);
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="event_creation.html">Event Creation & Management</a></li>
                     <li class="nav-item"><a class="nav-link" href="notifications.html">Notifications & Reminders</a></li>
-                    <li class="nav-item"><a class="nav-link" href="venue_management.html">Venue & Resource Management</a></li>
-                    <li class="nav-item"><a class="nav-link" href="event_schedule.html">Event Schedule & Agenda</a></li>
-                    <li class="nav-item"><a class="nav-link" href="reports.html">Reports & Analytics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="map.html">Map</a></li>
+                    <li class="nav-item"><a class="nav-link" href="fetch_past_events.php">Past Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="generate_report.php">Reports & Analytics</a></li>
                     <li class="nav-item"><a class="nav-link logout-btn" href="login.html">Logout</a></li>
                 </ul>
             </div>
@@ -95,3 +97,20 @@ $result = $conn->query($sql);
 </html>
 
 <?php $conn->close(); ?>
+
+<!-- admin_dashboard.html -->
+<button id="pastEventsBtn">Past Events</button>
+<div id="pastEvents"></div>
+
+<script>
+document.getElementById("pastEventsBtn").addEventListener("click", function() {
+    fetch("fetch_past_events.php")
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("pastEvents").innerHTML = data;
+    });
+});
+</script>
+
+
+
