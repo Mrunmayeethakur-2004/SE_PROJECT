@@ -11,7 +11,8 @@ if ($conn->connect_error) {
 }
 
 // Fetch events from the database
-$sql = "SELECT * FROM events ORDER BY event_date DESC";
+$sql = $sql = "SELECT id, event_name, event_date, event_time, location, category, description, event_banner, event_brochure FROM events ORDER BY event_date DESC";
+
 $result = $conn->query($sql);
 ?>
 
@@ -40,7 +41,15 @@ $result = $conn->query($sql);
     </style>
 </head>
 <body>
-ADMINISTRATOR DASHBOARD....!!
+<?php
+if (isset($_GET['message'])) {
+    echo '<div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+            ' . htmlspecialchars($_GET['message']) . '
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>';
+}
+?>
+
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark">
@@ -56,61 +65,52 @@ ADMINISTRATOR DASHBOARD....!!
                     <li class="nav-item"><a class="nav-link" href="map.html">Map</a></li>
                     <li class="nav-item"><a class="nav-link" href="fetch_past_events.php">Past Events</a></li>
                     <li class="nav-item"><a class="nav-link" href="generate_report.php">Reports & Analytics</a></li>
-                    <li class="nav-item"><a class="nav-link logout-btn" href="login.php">Logout</a></li>
+                    <li class="nav-item"><a class="nav-link logout-btn" href="login.html">Logout</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Banner -->
-    <div class="banner">
-        <h1>Welcome to the Event Management System</h1>
-    </div>
+<!-- Banner -->
+<div class="banner">
+    <h1>Welcome to the Event Management System</h1>
+</div>
 
-    <!-- Main Content -->
-    <div class="container">
-        <h2 class="text-center">Upcoming Events</h2>
-        <p class="text-center">Manage your events efficiently.</p>
+<!-- Main Content -->
+<div class="container">
+    <h2 class="text-center">Upcoming Events</h2>
+    <p class="text-center">Manage your events efficiently.</p>
 
-        <div class="row mt-4">
-            <?php while ($row = $result->fetch_assoc()): ?>
-                <div class="col-md-4">
-                    <div class="card event-card shadow-sm">
-                        <img src="<?php echo $row['event_banner']; ?>" class="event-banner" alt="Event Banner">
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo htmlspecialchars($row["event_name"]); ?></h5>
-                            <p class="card-text"><strong>Date:</strong> <?php echo htmlspecialchars($row["event_date"]); ?></p>
-                            <p class="card-text"><strong>Time:</strong> <?php echo htmlspecialchars($row["event_time"]); ?></p>
-                            <p class="card-text"><strong>Location:</strong> <?php echo htmlspecialchars($row["location"]); ?></p>
-                            <p class="card-text"><strong>Category:</strong> <?php echo htmlspecialchars($row["category"]); ?></p>
-                            <p class="card-text"><?php echo nl2br(htmlspecialchars($row["description"])); ?></p>
-                            <a href="<?php echo $row['event_brochure']; ?>" class="btn btn-primary" target="_blank">View Brochure</a>
-                        </div>
+    <div class="row mt-4">
+        <?php while ($row = $result->fetch_assoc()): ?>
+            <div class="col-md-4 mb-4">
+                <div class="card event-card shadow-sm">
+                    <img src="<?php echo htmlspecialchars($row['event_banner']); ?>" class="event-banner" alt="Event Banner">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo htmlspecialchars($row["event_name"]); ?></h5>
+                        <p class="card-text"><strong>Date:</strong> <?php echo htmlspecialchars($row["event_date"]); ?></p>
+                        <p class="card-text"><strong>Time:</strong> <?php echo htmlspecialchars($row["event_time"]); ?></p>
+                        <p class="card-text"><strong>Location:</strong> <?php echo htmlspecialchars($row["location"]); ?></p>
+                        <p class="card-text"><strong>Category:</strong> <?php echo htmlspecialchars($row["category"]); ?></p>
+                        <p class="card-text"><?php echo nl2br(htmlspecialchars($row["description"])); ?></p>
+                        <a href="<?php echo htmlspecialchars($row['event_brochure']); ?>" class="btn btn-primary" target="_blank">View Brochure</a>
+                        <!-- DELETE BUTTON -->
+                        <form action="delete_event.php" method="POST">
+                            <input type="hidden" name="event_id" value="<?php echo htmlspecialchars($row['id']); ?>"> <!-- Change 'event_id' to 'id' -->
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this event?');">
+                             Delete
+                            </button>
+                        </form>
+
                     </div>
                 </div>
-            <?php endwhile; ?>
-        </div>
+            </div>
+        <?php endwhile; ?>
     </div>
+</div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 
 <?php $conn->close(); ?>
-
-<!-- admin_dashboard.html -->
-<button id="pastEventsBtn">Past Events</button>
-<div id="pastEvents"></div>
-
-<script>
-document.getElementById("pastEventsBtn").addEventListener("click", function() {
-    fetch("fetch_past_events.php")
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById("pastEvents").innerHTML = data;
-    });
-});
-</script>
-
-
-
