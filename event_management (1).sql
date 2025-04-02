@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2025 at 06:40 AM
+-- Generation Time: Apr 02, 2025 at 08:28 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -46,9 +46,36 @@ CREATE TABLE `events` (
 
 INSERT INTO `events` (`id`, `event_name`, `event_date`, `event_time`, `location`, `category`, `description`, `event_banner`, `event_brochure`, `created_at`) VALUES
 (1, 'Farewell party', '2025-03-26', '11:00:00', 'College Campus', 'Seminar', 'Final Year Farewell party ', 'uploads/img.png', 'uploads/Brochure.png', '2025-03-26 17:18:48'),
-(2, 'Freshers party', '2025-12-29', '10:00:00', 'College Campus', 'Seminar', 'First year welcome party', 'uploads/img.png', 'uploads/Brochure.png', '2025-03-26 17:20:55'),
 (3, 'Comedy Show', '2025-03-27', '17:00:00', 'COEP Main Audi', 'Concert', 'It is a comedy show ', 'uploads/banner.png', 'uploads/Brochure.png', '2025-03-26 17:28:51'),
 (4, 'Regata', '2025-03-19', '17:00:00', 'Boat club', 'Concert', 'Regata event', 'uploads/banner.png', 'uploads/Brochure.png', '2025-03-27 06:59:59');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `event_registrations`
+--
+
+CREATE TABLE `event_registrations` (
+  `id` int(11) NOT NULL,
+  `event_id` int(11) NOT NULL,
+  `user_name` varchar(255) NOT NULL,
+  `user_email` varchar(255) NOT NULL,
+  `registered_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `event_registrations`
+--
+
+INSERT INTO `event_registrations` (`id`, `event_id`, `user_name`, `user_email`, `registered_at`) VALUES
+(1, 3, 'Mrunmayee Thakur', 'mrunmayeethakur5@gmail.com', '2025-04-01 18:30:08'),
+(2, 3, 'Anu Thakur', 'anu123@gmail.com', '2025-04-01 19:01:17'),
+(3, 1, 'Pramod Thakur', 'pramodthakur5600@gmail.com', '2025-04-01 19:22:39'),
+(4, 1, 'Mrunmayee Thakur', 'mrunmayeethakur5@gmail.com', '2025-04-02 04:20:16'),
+(5, 4, 'Mrunmayee Thakur', 'mrunmayeethakur5@gmail.com', '2025-04-02 04:26:41'),
+(6, 3, 'Anu Thakur', 'anu123@gmail.com', '2025-04-02 05:21:26'),
+(7, 3, 'Pramod Thakur', 'pramodthakur5600@gmail.com', '2025-04-02 06:08:45'),
+(8, 3, 'komal Rajguru', 'Komal234@gmail.com', '2025-04-02 06:12:16');
 
 -- --------------------------------------------------------
 
@@ -74,7 +101,8 @@ INSERT INTO `users` (`id`, `role`, `email`, `password`) VALUES
 (5, 'admin', 'Komal339@gmail.com', '$2y$10$cOMTb5mzK7r2bOYojtQ0l.z1gXooxC.EYwQocfJNYRM9c77IVekYW'),
 (7, 'admin', 'Komal016@gmail.com', '$2y$10$kTYXytW8oS9busaL6FBgrODMttRxlrRV9At/2qUTUXpjKzBPBZasS'),
 (8, 'user', 'shravani@gmail.com', '$2y$10$I44zMcXIFcxSuE7NrftdV.z39hSsoUJXkRxIKog9/L8voTWBIYLje'),
-(11, 'admin', 'disha2004@gmail.com', '$2y$10$ryvTArekN7hqT8hlwxCBCeMblFJwmccoo7D/Ef/vNGbm9QpT9UaFi');
+(11, 'admin', 'disha2004@gmail.com', '$2y$10$ryvTArekN7hqT8hlwxCBCeMblFJwmccoo7D/Ef/vNGbm9QpT9UaFi'),
+(12, 'user', 'mrunmayeethakur5@gmail.com', '$2y$10$S.FRyGyXhpD/ZwsOqfk5XOMh1uAa7sfHsmSITTjPXeMVRdgNRyYXS');
 
 --
 -- Indexes for dumped tables
@@ -85,6 +113,13 @@ INSERT INTO `users` (`id`, `role`, `email`, `password`) VALUES
 --
 ALTER TABLE `events`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `event_registrations`
+--
+ALTER TABLE `event_registrations`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `event_id` (`event_id`);
 
 --
 -- Indexes for table `users`
@@ -104,10 +139,26 @@ ALTER TABLE `events`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `event_registrations`
+--
+ALTER TABLE `event_registrations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `event_registrations`
+--
+ALTER TABLE `event_registrations`
+  ADD CONSTRAINT `event_registrations_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `events` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
