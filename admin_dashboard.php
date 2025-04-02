@@ -56,7 +56,7 @@ ADMINISTRATOR DASHBOARD....!!
                     <li class="nav-item"><a class="nav-link" href="map.html">Map</a></li>
                     <li class="nav-item"><a class="nav-link" href="fetch_past_events.php">Past Events</a></li>
                     <li class="nav-item"><a class="nav-link" href="generate_report.php">Reports & Analytics</a></li>
-                    <li class="nav-item"><a class="nav-link logout-btn" href="login.html">Logout</a></li>
+                    <li class="nav-item"><a class="nav-link logout-btn" href="login.php">Logout</a></li>
                 </ul>
             </div>
         </div>

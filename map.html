@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigate to COEP Technological University</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        h2 {
+            margin-top: 20px;
+            color: #f0f0f0
+        }
+        .map-image {
+            width: 80%;
+            max-width: 600px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .nav-button {
+            background: #007BFF;
+            color: white;
+            padding: 15px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .nav-button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body background="map.png" >
+
+    <h2>Navigate to COEP Technological University</h2>
+
+    <!-- Display the Image -->
+  <!-- <img src="map.png" alt="COEP Campus Map" class="map-image">-->
+    
+    <!-- Navigation Button -->
+    <button class="nav-button" onclick="startNavigation()">Start Navigation</button>
+
+    <script>
+        function startNavigation() {
+            window.location.href = "https://www.google.com/maps/dir/?api=1&destination=18.529539,73.856145";
+        }
+    </script>
+
+</body>
+</html>

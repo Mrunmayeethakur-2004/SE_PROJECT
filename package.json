@@ -1,0 +1,28 @@
+{
+  "name": "se_project",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mrunmayeethakur-2004/SE_PROJECT.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mrunmayeethakur-2004/SE_PROJECT/issues"
+  },
+  "homepage": "https://github.com/Mrunmayeethakur-2004/SE_PROJECT#readme",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "nodemailer": "^6.10.0",
+    "twilio": "^5.5.1"
+  }
+}

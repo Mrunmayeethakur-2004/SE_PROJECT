@@ -21,26 +21,47 @@
             <label for="email">Email:</label>
             <input type="email" id="email" placeholder="Enter your email" required>
 
-            <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" placeholder="Enter your phone number" required>
-
-            <label for="notificationType">Notification Type:</label>
-            <select id="notificationType">
-                <option value="email">Email Notifications</option>
-                <option value="sms">SMS Notifications</option>
-                <option value="both">Both Email & SMS</option>
-            </select>
-
-            <label for="eventUpdates">
-                <input type="checkbox" id="eventUpdates"> Receive last-minute event updates and schedule changes.
-            </label>
-
             <button type="submit">Subscribe</button>
         </form>
 
-        <button onclick="requestPushPermission()">Enable Push Notifications</button>
+        <p id="statusMessage"></p>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        document.getElementById("notificationForm").addEventListener("submit", async function(event) {
+            event.preventDefault(); // Prevent page refresh
+
+            let fullName = document.getElementById("fullName").value;
+            let email = document.getElementById("email").value;
+            let statusMessage = document.getElementById("statusMessage");
+
+            let requestData = {
+                fullName,
+                email
+            };
+
+            try {
+                let response = await fetch("http://localhost:5000/send-email", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(requestData)
+                });
+
+                let result = await response.json();
+                if (response.ok) {
+                    statusMessage.innerHTML = "✅ Email sent successfully!";
+                    statusMessage.style.color = "green";
+                } else {
+                    statusMessage.innerHTML = "❌ Error: " + result.error;
+                    statusMessage.style.color = "red";
+                }
+            } catch (error) {
+                console.error("Error sending email:", error);
+                statusMessage.innerHTML = "❌ Failed to send email";
+                statusMessage.style.color = "red";
+            }
+        });
+    </script>
+
 </body>
 </html>
