@@ -61,7 +61,8 @@ if (isset($_GET['message'])) {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="event_creation.html">Event Creation & Management</a></li>
-                    <li class="nav-item"><a class="nav-link" href="notifications.html">Notifications & Reminders</a></li>
+                    <li class="nav-item"><a class="nav-link" href="view_registrations.php">View Registration</a></li>
+                    <!--<li class="nav-item"><a class="nav-link" href="notifications.html">Notifications & Reminders</a></li>-->
                     <li class="nav-item"><a class="nav-link" href="map.html">Map</a></li>
                     <li class="nav-item"><a class="nav-link" href="fetch_past_events.php">Past Events</a></li>
                     <li class="nav-item"><a class="nav-link" href="generate_report.php">Reports & Analytics</a></li>

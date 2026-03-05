@@ -24,11 +24,11 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <style>
         body { font-family: Arial, sans-serif; background-color: #f8f9fa; }
-        .navbar { background: linear-gradient(90deg, #6a11cb, #2575fc); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+        .navbar { background: linear-gradient(90deg,rgb(203, 60, 17),rgb(252, 187, 37)); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
         .navbar-brand { font-weight: bold; font-size: 24px; color: white; }
         .nav-item a { color: white; font-weight: 500; transition: color 0.3s ease-in-out; }
         .nav-item a:hover { color: #ffdd57; }
-        .banner { background: url('banner.png') no-repeat center center/cover; height: 250px; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; color: white; font-size: 24px; font-weight: bold; }
+        .banner { background: url('banner2.png') no-repeat center center/cover; height: 250px; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; color: white; font-size: 24px; font-weight: bold; }
         .banner::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); }
         .banner h1 { position: relative; z-index: 1; }
         .container { padding: 40px 20px; }
@@ -48,7 +48,7 @@ $result = $conn->query($sql);
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="notifications.html">Notifications & Reminders</a></li>
+                <!--<li class="nav-item"><a class="nav-link" href="notifications.html">Notifications & Reminders</a></li>-->
                 <li class="nav-item"><a class="nav-link" href="map.html">Map</a></li>
                 <li class="nav-item"><a class="nav-link" href="fetch_past_events.php">Past Events</a></li>
                 <li class="nav-item"><a class="nav-link logout-btn" href="login.html">Logout</a></li>

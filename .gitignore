@@ -10,3 +10,9 @@ __pycache__/
 # Ignore environment files
 .env
 .venv
+
+# Ignore Node dependencies
+node_modules/
+
+# Ignore Composer dependencies
+vendor/
